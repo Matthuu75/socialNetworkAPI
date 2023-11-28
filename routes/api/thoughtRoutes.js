@@ -10,19 +10,20 @@ const {
     deleteReaction
 } = require('../../controllers/thoughtController');
 
+// Use .route() to define the base path for these routes
 router.route('/')
-    .get(getThoughts)
-    .post(createThought);
+    .get(getThoughts)  // Chain the .get() method
+    .post(createThought);  // Chain the .post() method
 
 router.route('/:id')
-    .get(getThoughtById)
-    .put(updateThought)
-    .delete(deleteThought);
+    .get(getThoughtById)  // Chain the .get() method
+    .put(updateThought)  // Chain the .put() method
+    .delete(deleteThought);  // Chain the .delete() method
 
 router.route('/:thoughtId/reactions')
-    .post(addReaction);
+    .post(addReaction);  // Chain the .post() method
 
 router.route('/:thoughtId/reactions/:reactionId')
-    .delete(deleteReaction);
+    .delete(deleteReaction);  // Chain the .delete() method
 
 module.exports = router;

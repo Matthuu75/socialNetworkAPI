@@ -1,13 +1,13 @@
 const { User, Thought } = require("../models");
 
 module.exports = {
-    getThought(req, res) {
+    getThoughts(req, res) {
         Thought.find({})
             .then((thoughts) => res.json(thoughts))
             .catch((err) => res.status(500).json(err));
     },
 
-    getSingleThought(req, res) {
+    getThoughtById(req, res) {
         Thought.findById(req.params.thoughtId)
             .populate("reactions")
             .then((thought) =>
@@ -69,7 +69,7 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
 
-    createReaction(req, res) {
+    addReaction(req, res) {
         Thought.findByIdAndUpdate(
             req.params.thoughtId,
             { $addToSet: { reactions: req.body } },
