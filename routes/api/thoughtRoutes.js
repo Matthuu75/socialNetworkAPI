@@ -12,18 +12,18 @@ const {
 
 // Use .route() to define the base path for these routes
 router.route('/')
-    .get(getThoughts)  // Chain the .get() method
-    .post(createThought);  // Chain the .post() method
+    .get(getThoughts) 
+    .post(createThought);
 
 router.route('/:id')
-    .get(getThoughtById)  // Chain the .get() method
-    .put(updateThought)  // Chain the .put() method
-    .delete(deleteThought);  // Chain the .delete() method
+    .get(getThoughtById)  
+    .put(updateThought) 
+    .delete(deleteThought); 
 
 router.route('/:thoughtId/reactions')
-    .post(addReaction);  // Chain the .post() method
+    .post(addReaction);
 
 router.route('/:thoughtId/reactions/:reactionId')
-    .delete(deleteReaction);  // Chain the .delete() method
+    .delete(deleteReaction);
 
 module.exports = router;
